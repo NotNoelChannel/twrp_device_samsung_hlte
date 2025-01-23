@@ -55,9 +55,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F androidboot.bootdevice=msm_sdcc.1
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02900000 --tags_offset 0x02700000
 LZMA_RAMDISK_TARGETS := recovery
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/hlte/mkbootimg.mk
@@ -68,7 +67,7 @@ KERNEL_TOOLCHAIN := /opt/toolchains/arm-eabi-4.8/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 
 #TARGET_PREBUILT_KERNEL := device/samsung/hlte/prebuilt/zImage
-#TARGET_PREBUILT_DTB := device/samsung/hlte/prebuilt/dtb
+TARGET_PREBUILT_DTB := device/samsung/hlte/prebuilt/dtb
 
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
