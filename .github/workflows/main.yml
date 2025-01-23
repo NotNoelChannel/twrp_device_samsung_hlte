@@ -30,6 +30,7 @@ jobs:
         curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
         python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest -b twrp-7.1
         git clone --branch fox-7.1 --single-branch https://github.com/NotNoelChannel/twrp_device_samsung_hlte.git ~/OFRP/device/samsung/hlte
+        git clone --branch cm-14.1 --single-branch https://github.com/LineageOS/android_kernel_samsung_msm8974.git ~/OFRP/kernel/samsung/msm8974
         python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
     - name: Building OFRP
       run: |
@@ -58,7 +59,6 @@ jobs:
         export OF_FLASHLIGHT_ENABLE=0
         export OF_DEVICE_WITHOUT_PERSIST=1
         export OF_DISABLE_EXTRA_ABOUT_PAGE=1
-        export FOX_DRASTIC_SIZE_REDUCTION=1
         lunch omni_hlte-eng
         make -j$(nproc --all) recoveryimage
         export PATH=$OLDPATH
